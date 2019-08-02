@@ -1,6 +1,6 @@
 package frc.robot
 
-import frc.robot.subsystems.ExampleCommand
+import frc.robot.subsystems.example.ExampleCommand
 import org.ghrobotics.lib.wrappers.hid.* // ktlint-disable no-wildcard-imports
 
 object Controls {

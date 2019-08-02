@@ -1,7 +1,7 @@
 
 package frc.robot
 
-import frc.robot.subsystems.ExampleSubsystem
+import frc.robot.subsystems.example.ExampleSubsystem
 import org.ghrobotics.lib.wrappers.FalconTimedRobot
 
 object Robot : FalconTimedRobot() {
