@@ -8,9 +8,6 @@ object Controls {
     // This is the xbox controller on port 0 of the driverstation
     val driverFalconXbox = xboxController(0) {
         registerEmergencyMode()
-
-        // This command will run while you hold B
-        button(kB).change(DriveCommand())
     }
 
     fun update() {

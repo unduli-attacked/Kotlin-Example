@@ -8,22 +8,6 @@ import org.ghrobotics.lib.motors.ctre.FalconSRX
 
 object DriveSubsystem : FalconSubsystem(){
 
-    val leftMotor: FalconSRX<NativeUnit> = FalconSRX(1, DefaultNativeUnitModel).apply { /* this: FalconSRX<NativeUnit> */
-        this.outputInverted = false // TODO Replace me with what you found works for the leftMotor
-    }
-
-    val leftFollower: FalconSRX<NativeUnit> = FalconSRX(2, DefaultNativeUnitModel).apply { /* this: FalconSRX<NativeUnit> */
-        this.outputInverted = false // TODO Replace me with what you found works for the leftFollower
-        this.follow(leftMotor)
-    }
-
-    val rightMotor: FalconSRX<NativeUnit> = FalconSRX(3, DefaultNativeUnitModel).apply { /* this: FalconSRX<NativeUnit> */
-        this.outputInverted = false // TODO Replace me with what you found works for the rightMotor
-    }
-
-    val rightFollower: FalconSRX<NativeUnit> = FalconSRX(4, DefaultNativeUnitModel).apply { /* this: FalconSRX<NativeUnit> */
-        this.outputInverted = false // TODO Replace me with what you found works for the rightFollower
-        this.follow(rightMotor)
-    }
+    val leftMotor: FalconSRX<NativeUnit> = FalconSRX(1, DefaultNativeUnitModel)
 
 }
