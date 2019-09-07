@@ -26,4 +26,8 @@ object DriveSubsystem : FalconSubsystem(){
         this.follow(rightMotor)
     }
 
+    override fun lateInit() {
+        defaultCommand = DriveCommand()
+    }
+
 }
