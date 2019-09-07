@@ -17,8 +17,33 @@ class DriveCommand : FalconCommand(DriveSubsystem){
             val forward = -speedSource() // same as -1 * speedSource.invoke()
             val turn = rotationSource()
 
-            val wantedLeftOutput = forward // these will change once we add turning
-            val wantedRightOutput = forward
+            var wantedLeftOutput = forward // these will change once we add turning
+            var wantedRightOutput = forward
+
+            val maximum = Math.copySign(Math.max(Math.abs(forward),Math.abs(turn)), forward)
+
+
+            if(forward >=0){
+                if (turn >=0){
+                    // turn angle is in 1st quadrant
+                    wantedLeftOutput = maximum
+                    wantedRightOutput = forward - turn
+                }else{
+                    // turn angle is in 2nd quadrant
+                    wantedLeftOutput = forward +turn
+                    wantedRightOutput = maximum
+                }
+            }else{
+                if (turn >=0){
+                    // turn angle is in 3rd quadrant
+                    wantedLeftOutput = forward + turn
+                    wantedRightOutput = maximum
+                }else{
+                    // turn angle is in 4th quadrant
+                    wantedLeftOutput = maximum
+                    wantedRightOutput = forward - turn
+                }
+            }
 
             DriveSubsystem.leftMotor.setDutyCycle(wantedLeftOutput)
             DriveSubsystem.rightMotor.setDutyCycle(wantedRightOutput)
@@ -32,7 +57,7 @@ class DriveCommand : FalconCommand(DriveSubsystem){
         companion object {
             private const val kDeadband = 0.05
             val speedSource by lazy { Controls.driverFalconXbox.getY(GenericHID.Hand.kLeft).withDeadband(kDeadband) }
-            private val rotationSource by lazy { Controls.driverFalconXbox.getX(GenericHID.Hand.kRight) }
+            private val rotationSource by lazy { Controls.driverFalconXbox.getX(GenericHID.Hand.kRight).withDeadband(kDeadband) }
         }
     }
 }
