@@ -1,15 +1,14 @@
 
 package frc.robot
 
-import frc.robot.subsystems.example.ExampleSubsystem
+import frc.robot.subsystems.drive.DriveSubsystem
 import org.ghrobotics.lib.wrappers.FalconTimedRobot
 
 object Robot : FalconTimedRobot() {
 
     override fun robotInit() {
         // the + operator just adds the FalconSubsystem to the FalconSubsystemHandler
-        +ExampleSubsystem
-
+            +DriveSubsystem
         // it's not necessary if the thing isn't a Subsystem or FalconSubsystem
         Controls
 
