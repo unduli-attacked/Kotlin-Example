@@ -12,5 +12,6 @@ class DriveCommand : FalconCommand(DriveSubsystem){
 
     override fun end(interrupted: Boolean) {
         DriveSubsystem.leftMotor.setNeutral()
+        DriveSubsystem.rightMotor.setNeutral()
     }
 }
