@@ -9,7 +9,7 @@ plugins {
             ".1"
     id("org.jetbrains.kotlin.jvm") version "1.3.41"
     id("idea")
-    id("org.jlleitschuh.gradle.ktlint") version "8.0.0"
+    id("org.jlleitschuh.gradle.ktlint") version "8.2.0"
 }
 
 val roborioTargetName = "roborio"

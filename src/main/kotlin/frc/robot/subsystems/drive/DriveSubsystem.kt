@@ -5,9 +5,7 @@ import org.ghrobotics.lib.mathematics.units.nativeunit.DefaultNativeUnitModel
 import org.ghrobotics.lib.mathematics.units.nativeunit.NativeUnit
 import org.ghrobotics.lib.motors.ctre.FalconSRX
 
+object DriveSubsystem : FalconSubsystem() {
 
-object DriveSubsystem : FalconSubsystem(){
-
-    val leftMotor: FalconSRX<NativeUnit> = FalconSRX(1, DefaultNativeUnitModel)
-
+    val leftMotor: FalconSRX<NativeUnit> = FalconSRX(id = 1, model = DefaultNativeUnitModel)
 }
