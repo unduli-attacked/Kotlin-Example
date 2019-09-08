@@ -10,7 +10,7 @@ object Controls {
         registerEmergencyMode()
 
         // This command will run while you hold B
-        button(kB).change(DriveCommand())
+//        button(kB).change(DriveCommand())
     }
 
     fun update() {
