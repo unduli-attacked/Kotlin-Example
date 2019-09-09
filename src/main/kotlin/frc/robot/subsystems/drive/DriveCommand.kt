@@ -7,8 +7,8 @@ import org.ghrobotics.lib.utils.withDeadband
 import org.ghrobotics.lib.wrappers.hid.getX
 import org.ghrobotics.lib.wrappers.hid.getY
 
-class DriveCommand : FalconCommand(DriveSubsystem){
-    class TeleopDriveCommand : FalconCommand(DriveSubsystem){
+class DriveCommand : FalconCommand(DriveSubsystem) {
+    class TeleopDriveCommand : FalconCommand(DriveSubsystem) {
 
         override fun isFinished() = false
 
@@ -20,25 +20,24 @@ class DriveCommand : FalconCommand(DriveSubsystem){
             var wantedLeftOutput: Double // these will change once we add turning
             var wantedRightOutput: Double
 
-            val maximum = Math.copySign(Math.max(Math.abs(forward),Math.abs(turn)), forward)
+            val maximum = Math.copySign(Math.max(Math.abs(forward), Math.abs(turn)), forward)
 
-
-            if(forward >=0){
-                if (turn >=0){
+            if (forward >= 0) {
+                if (turn >= 0) {
                     // turn angle is in 1st quadrant
                     wantedLeftOutput = maximum
                     wantedRightOutput = forward - turn
-                }else{
+                } else {
                     // turn angle is in 2nd quadrant
-                    wantedLeftOutput = forward +turn
+                    wantedLeftOutput = forward + turn
                     wantedRightOutput = maximum
                 }
-            }else{
-                if (turn >=0){
+            } else {
+                if (turn >= 0) {
                     // turn angle is in 3rd quadrant
                     wantedLeftOutput = forward + turn
                     wantedRightOutput = maximum
-                }else{
+                } else {
                     // turn angle is in 4th quadrant
                     wantedLeftOutput = maximum
                     wantedRightOutput = forward - turn
