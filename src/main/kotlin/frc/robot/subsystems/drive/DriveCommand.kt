@@ -17,8 +17,8 @@ class DriveCommand : FalconCommand(DriveSubsystem){
             val forward = -speedSource() // same as -1 * speedSource.invoke()
             val turn = rotationSource()
 
-            var wantedLeftOutput = forward // these will change once we add turning
-            var wantedRightOutput = forward
+            var wantedLeftOutput: Double // these will change once we add turning
+            var wantedRightOutput: Double
 
             val maximum = Math.copySign(Math.max(Math.abs(forward),Math.abs(turn)), forward)
 
@@ -57,7 +57,7 @@ class DriveCommand : FalconCommand(DriveSubsystem){
         companion object {
             private const val kDeadband = 0.05
             val speedSource by lazy { Controls.driverFalconXbox.getY(GenericHID.Hand.kLeft).withDeadband(kDeadband) }
-            private val rotationSource by lazy { Controls.driverFalconXbox.getX(GenericHID.Hand.kRight).withDeadband(kDeadband) }
+            val rotationSource by lazy { Controls.driverFalconXbox.getX(GenericHID.Hand.kRight).withDeadband(kDeadband) }
         }
     }
 }

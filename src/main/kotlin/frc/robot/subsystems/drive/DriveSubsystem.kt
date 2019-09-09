@@ -18,7 +18,7 @@ object DriveSubsystem : FalconSubsystem(){
     }
 
     val rightMotor: FalconSRX<NativeUnit> = FalconSRX(id=3, model=DefaultNativeUnitModel).apply { /* this: FalconSRX<NativeUnit> */
-        this.outputInverted = false // TODO Replace me with what you found works for the rightMotor
+        this.outputInverted = true // TODO Replace me with what you found works for the rightMotor
     }
 
     val rightFollower: FalconSRX<NativeUnit> = FalconSRX(id=4, model=DefaultNativeUnitModel).apply { /* this: FalconSRX<NativeUnit> */
