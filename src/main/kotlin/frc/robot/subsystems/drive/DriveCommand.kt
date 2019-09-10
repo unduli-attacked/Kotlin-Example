@@ -8,8 +8,6 @@ import org.ghrobotics.lib.wrappers.hid.getX
 import org.ghrobotics.lib.wrappers.hid.getY
 
 class DriveCommand : FalconCommand(DriveSubsystem) {
-    class TeleopDriveCommand : FalconCommand(DriveSubsystem) {
-
         override fun isFinished() = false
 
         override fun execute() {
@@ -46,6 +44,8 @@ class DriveCommand : FalconCommand(DriveSubsystem) {
 
             DriveSubsystem.leftMotor.setDutyCycle(wantedLeftOutput)
             DriveSubsystem.rightMotor.setDutyCycle(wantedRightOutput)
+
+
         }
 
         override fun end(interrupted: Boolean) {
@@ -59,4 +59,3 @@ class DriveCommand : FalconCommand(DriveSubsystem) {
             val rotationSource by lazy { Controls.driverFalconXbox.getX(GenericHID.Hand.kRight).withDeadband(kDeadband) }
         }
     }
-}

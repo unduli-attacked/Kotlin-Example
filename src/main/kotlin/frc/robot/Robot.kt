@@ -1,6 +1,8 @@
 
 package frc.robot
 
+import edu.wpi.first.wpilibj.experimental.command.CommandScheduler
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import frc.robot.subsystems.drive.DriveSubsystem
 import org.ghrobotics.lib.wrappers.FalconTimedRobot
 
@@ -11,6 +13,7 @@ object Robot : FalconTimedRobot() {
             +DriveSubsystem
         // it's not necessary if the thing isn't a Subsystem or FalconSubsystem
         Controls
+        SmartDashboard.putData(CommandScheduler.getInstance())
 
         super.robotInit()
     }

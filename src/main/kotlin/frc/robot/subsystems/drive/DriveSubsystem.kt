@@ -16,13 +16,8 @@ object DriveSubsystem : FalconSubsystem() {
         this.follow(leftMotor)
     }
 
-<<<<<<< Updated upstream
     val rightMotor: FalconSRX<NativeUnit> = FalconSRX(id=3, model=DefaultNativeUnitModel).apply { /* this: FalconSRX<NativeUnit> */
         this.outputInverted = true // TODO Replace me with what you found works for the rightMotor
-=======
-    val rightMotor: FalconSRX<NativeUnit> = FalconSRX(id = 3, model = DefaultNativeUnitModel).apply { /* this: FalconSRX<NativeUnit> */
-        this.outputInverted = false // TODO Replace me with what you found works for the rightMotor
->>>>>>> Stashed changes
     }
 
     val rightFollower: FalconSRX<NativeUnit> = FalconSRX(id = 4, model = DefaultNativeUnitModel).apply { /* this: FalconSRX<NativeUnit> */
