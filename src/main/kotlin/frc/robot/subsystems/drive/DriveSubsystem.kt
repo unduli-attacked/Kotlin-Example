@@ -18,4 +18,7 @@ object DriveSubsystem : FalconSubsystem() {
     }
 //    val rightFollower: VictorSP = VictorSP(4)
 
+    override fun lateInit() {
+        defaultCommand = DriveCommand()
+    }
 }
