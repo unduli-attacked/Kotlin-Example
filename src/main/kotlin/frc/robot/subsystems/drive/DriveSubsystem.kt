@@ -14,7 +14,7 @@ object DriveSubsystem : FalconSubsystem() {
 //    val leftFollower: VictorSP = VictorSP(2)
 
     val rightMotor: VictorSP = VictorSP(1).apply {
-        this.inverted = true;
+        this.inverted = true
     }
 //    val rightFollower: VictorSP = VictorSP(4)
 
