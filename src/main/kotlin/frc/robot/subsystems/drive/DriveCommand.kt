@@ -7,9 +7,11 @@ class DriveCommand : FalconCommand(DriveSubsystem) {
 
     override fun initialize() {
         DriveSubsystem.leftMotor.set(0.5)
+        DriveSubsystem.rightMotor.set(0.5)
     }
 
     override fun end(interrupted: Boolean) {
         DriveSubsystem.leftMotor.set(0.0)
+        DriveSubsystem.rightMotor.set(0.0)
     }
 }
