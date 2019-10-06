@@ -9,6 +9,8 @@ import org.ghrobotics.lib.motors.ctre.FalconSRX
 object DriveSubsystem : FalconSubsystem() {
 
     val leftMotor: VictorSP = VictorSP(0)
-    val rightMotor: VictorSP = VictorSP(1)
+    val rightMotor: VictorSP = VictorSP(1).apply {
+        this.inverted = true
+    }
 
 }
