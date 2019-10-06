@@ -11,6 +11,12 @@ class DriveCommand : FalconCommand(DriveSubsystem) {
     override fun isFinished() = false
 
     override fun initialize() {
+        DriveSubsystem.leftMotor.set(0.0)
+        DriveSubsystem.rightMotor.set(0.0)
+    }
+
+    override fun execute() {
+        super.execute()
         val forward = -speedSource()
         val turn = rotationSource()
 
