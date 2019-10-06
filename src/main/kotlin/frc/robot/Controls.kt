@@ -1,5 +1,7 @@
 package frc.robot
 
+import frc.robot.subsystems.drive.DriveCommand
+import frc.robot.subsystems.drive.DriveSubsystem
 import org.ghrobotics.lib.wrappers.hid.* // ktlint-disable no-wildcard-imports
 
 object Controls {
@@ -7,6 +9,7 @@ object Controls {
     // This is the xbox controller on port 0 of the driverstation
     val driverFalconXbox = xboxController(0) {
         registerEmergencyMode()
+        button(kB).change(DriveCommand())
     }
 
     fun update() {
@@ -16,6 +19,7 @@ object Controls {
 
 // just a smol helper that configures emergency mode on an Xbox controller
 private fun FalconXboxBuilder.registerEmergencyMode() {
+
     button(kBack).changeOn {
         Robot.activateEmergency()
     }
