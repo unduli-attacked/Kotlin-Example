@@ -9,6 +9,6 @@ import org.ghrobotics.lib.motors.ctre.FalconSRX
 object DriveSubsystem : FalconSubsystem() {
 
     val leftMotor: VictorSP = VictorSP(0)
-    val rightMotor: VictorSP = VictorSP(0)
+    val rightMotor: VictorSP = VictorSP(1)
 
 }
