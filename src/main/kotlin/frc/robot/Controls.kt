@@ -6,7 +6,7 @@ import org.ghrobotics.lib.wrappers.hid.* // ktlint-disable no-wildcard-imports
 
 object Controls {
 
-    // This is the xbox controller on port 0 of the driverstation
+// This is the xbox controller on port 0 of the driverstation
     val driverFalconXbox = xboxController(0) {
         registerEmergencyMode()
         button(kB).change(DriveCommand())
