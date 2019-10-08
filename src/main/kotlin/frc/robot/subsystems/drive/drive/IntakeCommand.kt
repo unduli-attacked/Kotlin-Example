@@ -17,4 +17,10 @@ IntakeSubsystem.intakeMotor.setDutyCycle(1.0)
     override fun end(interrupted: Boolean) {
         IntakeSubsystem.intakeMotor.setNeutral()
     }
+
+    companion object {
+        private const val kDeadband = 0.05
+        val speedSource by lazy { Controls.driverFalconXbox.getY(GenericHID.Hand.kLeft).withDeadband(kDeadband) }
+
+    }
 }
