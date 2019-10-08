@@ -1,4 +1,4 @@
-package frc.robot.subsystems.drive
+package frc.robot.subsystems.drive.drive
 
 
 import edu.wpi.first.wpilibj.GenericHID
@@ -13,8 +13,8 @@ class DriveCommand : FalconCommand(DriveSubsystem) {
 
     override fun initialize() {
 
-        DriveSubsystem.leftMotor.set(0.0)
-        DriveSubsystem.rightMotor.set(0.0)
+        DriveSubsystem.leftMotor.setDutyCycle(0.0)
+        DriveSubsystem.rightMotor.setDutyCycle(0.0)
     }
 
     override fun execute() {
@@ -25,14 +25,14 @@ class DriveCommand : FalconCommand(DriveSubsystem) {
         val wantedLeftOutput = forward + turn
         val wantedRightOutput = forward - turn
 
-        DriveSubsystem.leftMotor.set(wantedLeftOutput)
-        DriveSubsystem.rightMotor.set(wantedRightOutput)
+        DriveSubsystem.leftMotor.setDutyCycle(wantedLeftOutput)
+        DriveSubsystem.rightMotor.setDutyCycle(wantedRightOutput)
 
     }
 
     override fun end(interrupted: Boolean) {
-        DriveSubsystem.leftMotor.stopMotor()
-        DriveSubsystem.rightMotor.stopMotor()
+        DriveSubsystem.leftMotor.setNeutral()
+        DriveSubsystem.rightMotor.setNeutral()
 
     }
 

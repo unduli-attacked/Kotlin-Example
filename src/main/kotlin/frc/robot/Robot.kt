@@ -1,7 +1,7 @@
 
 package frc.robot
 
-import frc.robot.subsystems.drive.DriveSubsystem
+import frc.robot.subsystems.drive.drive.DriveSubsystem
 import org.ghrobotics.lib.wrappers.FalconTimedRobot
 
 object Robot : FalconTimedRobot() {
