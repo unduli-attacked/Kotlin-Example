@@ -18,4 +18,9 @@ class OuttakeCommand : FalconCommand(IntakeSubsystem) {
     override fun end(interrupted: Boolean) {
         IntakeSubsystem.intakeMotor.setNeutral()
     }
+
+    companion object {
+        private const val kDeadband = 0.08
+        private val outtakeSource by lazy { Controls.driverFalconXbox.getRawAxis(3)}
+    }
 }

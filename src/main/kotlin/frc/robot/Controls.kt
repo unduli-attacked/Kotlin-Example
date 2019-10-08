@@ -1,8 +1,10 @@
 package frc.robot
 
+import edu.wpi.first.wpilibj.GenericHID
 import frc.robot.subsystems.drive.DriveCommand
 import frc.robot.subsystems.intake.IntakeCommand
 import frc.robot.subsystems.intake.OuttakeCommand
+import org.ghrobotics.lib.utils.withDeadband
 import org.ghrobotics.lib.wrappers.hid.* // ktlint-disable no-wildcard-imports
 
 object Controls {
@@ -10,8 +12,7 @@ object Controls {
     // This is the xbox controller on port 0 of the driverstation
     val driverFalconXbox = xboxController(0) {
         registerEmergencyMode()
-        button(kB).change(IntakeCommand())
-        button(kX).change(OuttakeCommand())
+
     }
 
     fun update() {
