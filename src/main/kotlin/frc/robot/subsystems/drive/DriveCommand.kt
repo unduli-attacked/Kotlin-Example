@@ -29,6 +29,6 @@ class DriveCommand : FalconCommand(DriveSubsystem) {
     companion object {
         private const val kDeadband = 0.08
         val speedSource by lazy { Controls.driverFalconXbox.getY(GenericHID.Hand.kLeft).withDeadband(kDeadband) }
-        private val rotationSource by lazy { Controls.driverFalconXbox.getX(GenericHID.Hand.kRight)}
+        private val rotationSource by lazy { Controls.driverFalconXbox.getX(GenericHID.Hand.kRight).withDeadband(kDeadband)}
     }
 }

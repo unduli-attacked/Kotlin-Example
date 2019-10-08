@@ -3,7 +3,6 @@ package frc.robot
 import edu.wpi.first.wpilibj.GenericHID
 import frc.robot.subsystems.drive.DriveCommand
 import frc.robot.subsystems.intake.IntakeCommand
-import frc.robot.subsystems.intake.OuttakeCommand
 import org.ghrobotics.lib.utils.withDeadband
 import org.ghrobotics.lib.wrappers.hid.* // ktlint-disable no-wildcard-imports
 
