@@ -2,6 +2,7 @@
 package frc.robot
 
 import frc.robot.subsystems.drive.drive.DriveSubsystem
+import frc.robot.subsystems.drive.drive.IntakeSubsystem
 import org.ghrobotics.lib.wrappers.FalconTimedRobot
 
 object Robot : FalconTimedRobot() {
@@ -11,7 +12,7 @@ object Robot : FalconTimedRobot() {
         +DriveSubsystem
         // it's not necessary if the thing isn't a Subsystem or FalconSubsystem
         Controls
-
++IntakeSubsystem
         super.robotInit()
     }
 
