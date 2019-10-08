@@ -8,6 +8,7 @@ import org.ghrobotics.lib.motors.ctre.FalconSRX
 
 object DriveSubsystem : FalconSubsystem() {
 
+
     val leftMotor: FalconSRX <NativeUnit> = FalconSRX(id =1, model = DefaultNativeUnitModel)
     val leftFollower: FalconSRX <NativeUnit> = FalconSRX(id = 2, model = DefaultNativeUnitModel).apply {
         this.outputInverted = true
@@ -25,3 +26,4 @@ object DriveSubsystem : FalconSubsystem() {
         defaultCommand = DriveCommand()
     }
     }
+
