@@ -1,9 +1,7 @@
 package frc.robot
 
 import frc.robot.subsystems.intake.IntakeCommand
-import frc.robot.subsystems.intake.OutakeCommand
 import org.ghrobotics.lib.wrappers.hid.* // ktlint-disable no-wildcard-imports
-import frc.robot.subsystems.drive.DriveCommand
 
 object Controls {
 
@@ -11,7 +9,6 @@ object Controls {
     val driverFalconXbox = xboxController(0) {
         registerEmergencyMode()
         button(kB).change(IntakeCommand())
-        button(kX).change(OutakeCommand())
     }
 
     fun update() {

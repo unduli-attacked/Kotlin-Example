@@ -2,6 +2,7 @@
 package frc.robot
 
 import frc.robot.subsystems.drive.DriveSubsystem
+import frc.robot.subsystems.intake.IntakeSubsystem
 import org.ghrobotics.lib.wrappers.FalconTimedRobot
 
 object Robot : FalconTimedRobot() {
@@ -10,6 +11,7 @@ object Robot : FalconTimedRobot() {
         // the + operator just adds the FalconSubsystem to the FalconSubsystemHandler
         +DriveSubsystem
         // it's not necessary if the thing isn't a Subsystem or FalconSubsystem
+        +IntakeSubsystem
         Controls
 
         super.robotInit()
