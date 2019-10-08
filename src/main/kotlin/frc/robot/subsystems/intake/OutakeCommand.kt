@@ -16,4 +16,8 @@ class OutakeCommand : FalconCommand(IntakeSubsystem) {
     override fun end(interrupted: Boolean) {
         IntakeSubsystem.intakeMotor.setNeutral()
     }
+    companion object {
+        private const val kDeadband = 0.08
+        private val rotationSource by lazy { Controls.driverFalconXbox.getX(GenericHID.Hand.kRight) }
+    }
 }
