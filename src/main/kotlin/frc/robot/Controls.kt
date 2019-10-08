@@ -1,9 +1,9 @@
 package frc.robot
 
-import org.ghrobotics.lib.wrappers.hid.* // ktlint-disable no-wildcard-imports
-import frc.robot.subsystems.drive.DriveCommand
 import frc.robot.subsystems.intake.IntakeCommand
 import frc.robot.subsystems.intake.OutakeCommand
+import org.ghrobotics.lib.wrappers.hid.* // ktlint-disable no-wildcard-imports
+import frc.robot.subsystems.drive.DriveCommand
 
 object Controls {
 
