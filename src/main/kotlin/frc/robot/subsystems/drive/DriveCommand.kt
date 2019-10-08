@@ -8,27 +8,21 @@ import org.ghrobotics.lib.utils.withDeadband
 import org.ghrobotics.lib.wrappers.hid.getX
 import org.ghrobotics.lib.wrappers.hid.getY
 
-class DriveCommand : FalconCommand(DriveSubsystem) {
+
+
+class DriveCommand : FalconCommand(DriveSubsystem){
+
     override fun isFinished() = false
 
     override fun initialize() {
-        DriveSubsystem.leftMotor.setDutyCycle(0.8)
-        DriveSubsystem.rightMotor.setDutyCycle(0.8)
+        DriveSubsystem.leftMotor.setNeutral()
+        DriveSubsystem.rightMotor.setNeutral()
     }
-
-    override fun end(interrupted: Boolean) {
-        DriveSubsystem.leftMotor.setDutyCycle(0.0)
-        DriveSubsystem.rightMotor.setDutyCycle(0.0)
-    }
-
-class TeleopDriveCommand : FalconCommand(DriveSubsystem){
-
-    override fun isFinished() = false
 
     override fun execute() {
         //negative because Xbox is negative Y when pushed forward
         val forward = -speedSource()  // same as -1 * speedSource.invoke()
-        val turn = rotationSource()
+        val turn = -rotationSource()
 
         val wantedLeftOutput = forward + turn
         val wantedRightOutput = forward - turn
@@ -46,9 +40,8 @@ class TeleopDriveCommand : FalconCommand(DriveSubsystem){
     }
 
     companion object {
-        private const val kDeadband = 0.05
-        val speedSource by lazy{Controls.driverFalconXbox.getY(GenericHID.Hand.kLeft).withDeadband(kDeadband) }
-        val rotationSource by lazy{Controls.driverFalconXbox.getX(GenericHID.Hand.kRight) }
+        private const val kDeadband = 0.08
+        val speedSource by lazy {Controls.driverFalconXbox.getY(GenericHID.Hand.kLeft).withDeadband(kDeadband) }
+        val rotationSource by lazy{Controls.driverFalconXbox.getX(GenericHID.Hand.kRight).withDeadband(kDeadband) }
     }
-}
 }
