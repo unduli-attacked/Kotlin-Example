@@ -8,5 +8,8 @@ import org.ghrobotics.lib.motors.ctre.FalconSRX
 object IntakeSubsystem : FalconSubsystem() {
 
     val intakeMotor: FalconSRX<NativeUnit> = FalconSRX(id = 0, model = DefaultNativeUnitModel)
+    override fun lateInit() {
+        defaultCommand = IntakeCommand()
+    }
 
 }

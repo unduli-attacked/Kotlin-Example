@@ -13,9 +13,13 @@ class IntakeCommand : FalconCommand(IntakeSubsystem) {
 
     override fun initialize() {
         //something with speed?
-        IntakeSubsystem.intakeMotor.setDutyCycle(1.0)
+
+        IntakeSubsystem.intakeMotor.setDutyCycle(0.0)
     }
 
+    override fun execute() {
+        IntakeSubsystem.intakeMotor.setDutyCycle(intakeSource() - outtakeSource())
+    }
     override fun end(interrupted: Boolean) {
         IntakeSubsystem.intakeMotor.setNeutral()
     }
@@ -23,5 +27,7 @@ class IntakeCommand : FalconCommand(IntakeSubsystem) {
     companion object {
         private const val kDeadband = 0.08
         val intakeSource by lazy { Controls.driverFalconXbox.getRawAxis(2).withDeadband(kDeadband) }
+        val outtakeSource by lazy { Controls.driverFalconXbox.getRawAxis(3).withDeadband(kDeadband) }
+
     }
 }
