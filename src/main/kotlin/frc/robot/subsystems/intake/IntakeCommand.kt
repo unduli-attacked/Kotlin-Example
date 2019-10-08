@@ -22,7 +22,7 @@ class IntakeCommand : FalconCommand(IntakeSubsystem) {
     }
     companion object {
         private const val kDeadband = 0.08
-        val intakeSource by lazy { Controls.driverFalconXbox.getRawAxis(2).withDeadband(kDeadband) }
-        val outakeSource by lazy { Controls.driverFalconXbox.getRawAxis(3).withDeadband(kDeadband)}
+        val intakeSource by lazy {Controls.driverFalconXbox.getRawAxis(2).withDeadband(kDeadband)}
+        val outakeSource by lazy {Controls.driverFalconXbox.getRawAxis(3).withDeadband(kDeadband)}
     }
 }

@@ -10,7 +10,7 @@ object IntakeSubsystem : FalconSubsystem() {
 
     val intakeMotor: FalconSRX<NativeUnit> = FalconSRX(id = 0, model = DefaultNativeUnitModel)
 
-    fun lateInt() {
+    override fun lateInit() {
         defaultCommand = IntakeCommand()
     }
 }
