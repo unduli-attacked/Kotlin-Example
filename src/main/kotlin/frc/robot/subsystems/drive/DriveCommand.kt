@@ -18,16 +18,16 @@ class DriveCommand : FalconCommand(DriveSubsystem) {
         val forward = -speedSource() // same as -1 * speedSource.invoke()
         val turn = rotationSource()
 
-        val wantedLeftOutput = forward
-        val wantedRightOutput = forward
+        val wantedLeftOutput = forward + turn
+        val wantedRightOutput = forward - turn
 
-        DriveSubsystem.leftMotor.setSpeed(wantedLeftOutput)
-        DriveSubsystem.rightMotor.setSpeed(wantedRightOutput)
+        DriveSubsystem.leftMotor.setDutyCycle(wantedLeftOutput)
+        DriveSubsystem.rightMotor.setDutyCycle(wantedRightOutput)
     }
 
     override fun end(interrupted: Boolean) {
-        DriveSubsystem.leftMotor.setSpeed(0.0)
-        DriveSubsystem.rightMotor.setSpeed(0.0)
+        DriveSubsystem.leftMotor.setDutyCycle(0.0)
+        DriveSubsystem.rightMotor.setDutyCycle(0.0)
     }
 
     companion object {
