@@ -11,8 +11,8 @@ class DriveCommand : FalconCommand(DriveSubsystem) {
     override fun isFinished() = false
 
     override fun initialize() {
-        DriveSubsystem.leftMotor.set(0.0)
-        DriveSubsystem.rightMotor.set(0.0)
+        DriveSubsystem.leftMotor.setNeutral()
+        DriveSubsystem.rightMotor.setNeutral()
     }
 
     override fun execute() {
@@ -23,13 +23,13 @@ class DriveCommand : FalconCommand(DriveSubsystem) {
         val wantedLeftOutput = forward + turn
         val wantedRightOutput = forward - turn
 
-        DriveSubsystem.leftMotor.set(wantedLeftOutput)
-        DriveSubsystem.rightMotor.set(wantedRightOutput)
+        DriveSubsystem.leftMotor.setDutyCycle(wantedLeftOutput)
+        DriveSubsystem.rightMotor.setDutyCycle(wantedRightOutput)
     }
 
     override fun end(interrupted: Boolean) {
-        DriveSubsystem.leftMotor.stopMotor()
-        DriveSubsystem.rightMotor.stopMotor()
+        DriveSubsystem.leftMotor.setNeutral()
+        DriveSubsystem.rightMotor.setNeutral()
     }
 
     companion object {

@@ -2,6 +2,7 @@ package frc.robot
 
 import edu.wpi.first.wpilibj.Joystick
 import frc.robot.subsystems.drive.DriveCommand
+import frc.robot.subsystems.drive.IntakeCommand
 import org.ghrobotics.lib.wrappers.hid.* // ktlint-disable no-wildcard-imports
 
 object Controls {
@@ -10,6 +11,7 @@ object Controls {
     val driverFalconXbox = xboxController(0) {
         registerEmergencyMode()
         button(kB).change(DriveCommand())
+        button(kA).change(IntakeCommand());
     }
 
     fun update() {
